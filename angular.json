@@ -98,9 +98,58 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
+        },
+        "cypress-run": {
+          "builder": "@briebug/cypress-schematic:cypress",
+          "options": {
+            "devServerTarget": "angular-testing:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "angular-testing:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@briebug/cypress-schematic:cypress",
+          "options": {
+            "devServerTarget": "angular-testing:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "angular-testing:serve:production"
+            }
+          }
+        },
+        "e2e": {
+          "builder": "@briebug/cypress-schematic:cypress",
+          "options": {
+            "devServerTarget": "angular-testing:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "angular-testing:serve:production"
+            }
+          }
         }
       }
     }
   },
-  "defaultProject": "angular-testing"
+  "defaultProject": "angular-testing",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
