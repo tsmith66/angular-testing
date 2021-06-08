@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TempConverterService } from 'src/services/temp-converter.services';
 
 @Component({
   selector: 'app-temp-converter',
@@ -8,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class TempConverterComponent {
 
   convertedTemp: number | undefined;
-  constructor() { }
+  constructor(private service: TempConverterService) { }
 
   convertToC(temp: number) {
-    this.convertedTemp = 100;
+    this.convertedTemp = this.service.convertToC(temp);
   }
 }

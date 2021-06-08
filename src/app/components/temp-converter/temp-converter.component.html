@@ -1,5 +1,6 @@
-<div>
+<div data-temp-converter>
   <div>
+
     <label for="temp">Temperature</label>
     <input #temp
            data-temp-converter-entry
@@ -11,5 +12,6 @@
             (click)="convertToC(temp.valueAsNumber)">Convert to Celsius</button>
   </div>
   <span data-temp-converter-result
-        *ngIf="convertedTemp">{{temp.valueAsNumber}} is {{ convertedTemp }} Celsius </span>
+        *ngIf="convertedTemp !== undefined">{{temp.valueAsNumber}} is {{ convertedTemp | number:'0.0-2'}} Celsius
+  </span>
 </div>
